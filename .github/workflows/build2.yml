@@ -25,6 +25,12 @@ jobs:
         include:
           - userName: c120487
             repoName: TVBoxOS
+            branchName: main
+          - userName: c120487
+            repoName: TVBoxOS
+            branchName: f1028
+          - userName: c120487
+            repoName: TVBoxOS
             branchName: f0814
     steps:
       - name: Checkout
