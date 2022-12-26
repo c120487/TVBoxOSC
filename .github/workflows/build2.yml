@@ -96,7 +96,7 @@ jobs:
           rm -rf apk/
           mkdir -p apk/
           for file in `find ~ -name "*release*.apk" -print`; do
-            mv "$file" apk/TVBox_${{ matrix.userName }}_${{ matrix.branchName }}_${{ env.tag }}.apk
+            mv "$file" apk/TVBox_${{ matrix.branchName }}_${{ env.tag }}.apk
           done
 
 
@@ -117,7 +117,7 @@ jobs:
         uses: ncipollo/release-action@v1
         if: ${{ env.commit }}
         with:
-          name: ${{ env.tag }}
+          name: ${{ matrix.branchName }}_${{ env.tag }}
           tag: ${{ env.tag }}
           allowUpdates: true
           removeArtifacts: true
