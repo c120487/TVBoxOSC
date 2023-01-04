@@ -100,22 +100,16 @@ jobs:
           done
 
 
-
       - name: Upload App To Artifact
         uses: actions/upload-artifact@v3
-        if: ${{ env.commit }}
         with:
           name: ${{ matrix.userName }}-${{ matrix.repoName }}
           path: |
             TVBoxOSC/apk/*
             
-      - name: Whether Or Not to Publish
-        if: ${{ inputs.donotpublish && env.commit }}
-        run: |
-          echo "commit=" >> $GITHUB_ENV
+
       - name: Release and Upload Assets
         uses: ncipollo/release-action@v1
-        if: ${{ env.commit }}
         with:
           name: ${{ matrix.branchName }}_${{ env.tag }}
           tag: ${{ env.tag }}
